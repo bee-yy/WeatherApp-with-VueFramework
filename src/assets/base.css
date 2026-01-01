@@ -1,19 +1,19 @@
 @font-face {
-font-family: "DM Sans", sans-serif;
+font-family: "DM Sans";
   src: url('@/assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-font-family: "DM Sans", sans-serif;
+font-family: "DM Sans";
   src: url('@/assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "Bricolage Grotesque";
   src: url('src/assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
@@ -253,15 +253,18 @@ body {
   ===========
   */
 
-  .app{
+
+  #container{
     max-width: 1200px;
     width: 90%;
+    min-height: 100vh;
     margin:  var(--spacing-xl) auto;
 
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xxxl);
 
+    /* border: 2px solid red; */
 
   }
 
@@ -345,6 +348,10 @@ UTILITY CLASSES
   font-weight: var(--font-weight-normal);
 }
 
+.flex{
+  display: flex;
+}
+
 /*
 =====================================
 LARGE SCREENS 
@@ -355,7 +362,7 @@ LARGE SCREENS
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px){
-    .app{
+    #container{
     width: 85%;
     margin:  var(--spacing-xxl) auto;
   }
@@ -389,7 +396,7 @@ LARGE SCREENS
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px){
-      .app{
+      #container{
     margin:  var(--spacing-xxxl) auto;
   }
  
