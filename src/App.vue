@@ -46,7 +46,7 @@ const toggleTheme = () =>{
 
 const fetchCity = async () =>{
  try{
-    const response = await fetch('http://ip-api.com/json/')
+    const response = await fetch('https://ipapi.co/json/')
 
     if(!response.ok){
       throw new Error("Failed to fetch IP location")
