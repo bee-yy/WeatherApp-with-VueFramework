@@ -53,7 +53,7 @@ const fetchCity = async () =>{
     }
 
     data.value =  await response.json();
-    console.log("City Name",data.value.city)
+    // console.log("City Name",data.value.city)
     // city.value = data.value.city;
     //fetch city coordinates data 
 
@@ -82,7 +82,7 @@ try{
 
     //set country Name
     country.value = responseData.results[0].country;
-    console.log(city.value, country.value)
+    // console.log(city.value, country.value)
     
     //fetch city coordinates data 
     return {
@@ -100,7 +100,7 @@ try{
 }
 
 const fetchWeatherData = async (latitude, longitude) =>{
-  console.log("In Fetch Weather Data", latitude,longitude);
+  // console.log("In Fetch Weather Data", latitude,longitude);
   loading.value = true;
 try{
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,wind_speed_10m,weather_code&timezone=auto&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max,weather_code&forecast_days=5`)
@@ -110,7 +110,7 @@ try{
       throw new Error("Failed to fetch IP location")
     }
     const responseData =  await response.json();
-    console.log("Response Data in Fetch Weather",responseData)
+    // console.log("Response Data in Fetch Weather",responseData)
 
     //set daily forecast data
     dailyForecastData.value = {
@@ -146,7 +146,7 @@ const handleSubmit = async () =>{
   if (!userInpuCityName.value ) return;
 
   
-  console.log("In handle Submit")
+  // console.log("In handle Submit")
  city.value = userInpuCityName.value;
 
  coordinates.value = await fetchCityCoordinates(city.value);
@@ -163,6 +163,11 @@ const handleSubmit = async () =>{
 
 }
 
+const reloadPage = async ()=>{
+
+  window.location.reload();
+
+}
 onMounted(async (params) => {
  city.value = await fetchCity();
 
@@ -184,7 +189,7 @@ onMounted(async (params) => {
   <div id="container">
  <Header  :theme="theme" :toggleTheme="toggleTheme"/>
 
-<main>
+<main v-if="!errorMessage ">
 <h1 class="heading-1 center"> What’s it looking like outside?</h1>
 
   <SearchBar v-model="userInpuCityName" :onSubmit="handleSubmit"/>
@@ -227,8 +232,21 @@ onMounted(async (params) => {
    </div>
   </article>
 
+</main>
+
+<main 
+id="error-screen"
+v-else-if="errorMessage"
+class="flex ">
+<h1 class="heading-1 center "> OOPS</h1>
+<p>Something went wrong</p>
+<p>{{ errorMessage }}</p>
+<button @click="reloadPage"> Retry </button>
 
 
+
+
+   
 </main>
   </div>
 <Footer/>
