@@ -18,6 +18,7 @@ const coordinates = ref({
   lat: null,
   lon:null,
 })
+
 const weatherData = ref({
 currentTemperature: null ,
 apparentTemperature:null,
@@ -37,7 +38,7 @@ const data = ref(null)
 const loading = ref(true)
 const errorMessage = ref(null)
 
-
+const userInpuCityName = ref('')
 //functions
 const toggleTheme = () =>{
   theme.value = theme.value === "dark" ? "light":"dark"
@@ -141,18 +142,40 @@ try{
   }
 }
 
+const handleSubmit = async () =>{
+  if (!userInpuCityName.value ) return;
+
+  
+  console.log("In handle Submit")
+ city.value = userInpuCityName.value;
+
+ coordinates.value = await fetchCityCoordinates(city.value);
+  // console.log("In Mount",cityData)
+  // console.log(coordinates)
+  // console.log("Coords in mount",coordinates.value.lat, coordinates.value.lon)
+
+  weatherData.value = await fetchWeatherData(coordinates.value.lat, coordinates.value.lon)
+  // console.log(weatherData.value)
+  // console.log(dailyForecastData.value)
+
+  //clear input
+  userInpuCityName.value = "";
+
+}
+
 onMounted(async (params) => {
  city.value = await fetchCity();
 
  coordinates.value = await fetchCityCoordinates(city.value);
   // console.log("In Mount",cityData)
-  console.log(coordinates)
-  console.log("Coords in mount",coordinates.value.lat, coordinates.value.lon)
+  //console.log(coordinates)
+  //console.log("Coords in mount",coordinates.value.lat, coordinates.value.lon)
 
   weatherData.value = await fetchWeatherData(coordinates.value.lat, coordinates.value.lon)
-  console.log(weatherData.value)
-  console.log(dailyForecastData.value)
+  //console.log(weatherData.value)
+ // console.log(dailyForecastData.value)
 })
+
 
 
 </script>
@@ -164,7 +187,7 @@ onMounted(async (params) => {
 <main>
 <h1 class="heading-1 center"> What’s it looking like outside?</h1>
 
-  <SearchBar/>
+  <SearchBar v-model="userInpuCityName" :onSubmit="handleSubmit"/>
 
      <article id='content-container'>
    <div class="top-layer">
