@@ -248,8 +248,9 @@ class="flex ">
 
    
 </main>
-  </div>
 <Footer/>
+
+  </div>
 
 </template>
 
