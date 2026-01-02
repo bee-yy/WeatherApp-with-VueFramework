@@ -1,17 +1,35 @@
 <script setup>
 import SunnyIcon from '@/assets/images/Sunny.svg'
+import weatherCodeMap from './weatherCodes';
+
+const props = defineProps({
+temp:Number,
+code:Number,
+city:String,
+country:String,
+})
+
+  function getDate(){
+  //Thursday, Dec 5, 2025
+  let date = new Date();
+  return date.toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });}
 </script>
 
 <template>
- <div className='temperature-container'>
-    <div className="temperature-icon-container">
-      <img width="108" height="108" :src="SunnyIcon" alt=""/>
+ <div class='temperature-container'>
+    <div class="temperature-icon-container">
+      <img width="108" height="108" :src="weatherCodeMap[code]" alt=""/>
     </div>
-    <p className="temperature display orange">20 <span>°</span></p>
+    <p class="temperature display orange">{{Math.round(props.temp)}} <span>°</span></p>
     </div>
-    <div className='location-info-container'>
-      <p className='location heading-sm orange'>Burnaby,Canada</p>
-      <p className='date body-sm fw-normal orange'>January 1, 2026</p>
+    <div class='location-info-container'>
+      <p class='location heading-sm orange'>{{city}}, {{country}}</p>
+      <p class='date body-sm fw-normal orange '>{{getDate()}}</p>
       </div> 
     
 </template>

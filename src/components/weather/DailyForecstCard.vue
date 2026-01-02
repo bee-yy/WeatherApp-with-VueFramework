@@ -1,17 +1,32 @@
 <script setup>
 import SunnyIcon from "@/assets/images/Sunny.svg"
+import weatherCodeMap from "./weatherCodes";
 
+const props =defineProps({
+  date:String,
+  minTemp:Number,
+  maxTemp:Number,
+  code:Number
+})
+
+
+ function getDate(dateInput){
+  //Thursday, Dec 5, 2025
+  let date = new Date(dateInput);
+  return date.toLocaleDateString('en-US', { 
+      weekday: 'short',
+    });}
 </script>
 
 <template>
-    <div className="daily-forecast-card">
-    <p className='day'>Tue</p>
-    <div className="icon-container">
-      <img :src="SunnyIcon" alt=""/>
+    <div class="daily-forecast-card">
+    <p class='day'>{{ getDate(props.date)}}</p>
+    <div class="icon-container">
+      <img :src="weatherCodeMap[code]" :lt="weatherCodeMap[code]"/>
     </div>
-    <div className='temperature-range'>
-      <p> <span> 20 </span> <sup>°</sup> </p>
-      <p> <span> 14 </span> <sup>°</sup></p>
+    <div class='temperature-range'>
+      <p> <span> {{Math.round(props.minTemp)}} </span> <sup>°</sup> </p>
+      <p> <span> {{Math.round(props.maxTemp)}}</span> <sup>°</sup></p>
     </div>
     </div>
 </template>

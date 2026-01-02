@@ -1,17 +1,23 @@
 <script setup>
 import DailyForecstCard from './DailyForecstCard.vue';
+
+const props = defineProps({
+    dates:Array,
+    minTemps:Array,
+    maxTemps:Array,
+    codes:Array
+})
+
+
 </script>
 
 
 <template>
-    <p className='body-md'>Daily Forecast</p>
+    <p class='body-md'>Daily Forecast</p>
 
-    <div className="daily-forecast-cards-container">
-       <DailyForecstCard/>
-       <DailyForecstCard/>
-       <DailyForecstCard/>
-       <DailyForecstCard/>
-       <DailyForecstCard/>
+    <div class="daily-forecast-cards-container">
+       <DailyForecstCard v-for="(date, index) in dates" :key="index" :date="props.dates[index]" :minTemp="props.minTemps[index]" :maxTemp="props.maxTemps[index]" :code="props.codes[index]"/>
+       
     </div>
 </template>
 

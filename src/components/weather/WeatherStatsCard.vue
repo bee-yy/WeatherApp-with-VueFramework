@@ -1,12 +1,18 @@
 <script setup>
-
+const props = defineProps({
+  statsName:String,
+ statsValue: [Number, String],
+  unit:String
+   
+  
+})
 </script>
 
 
 <template>
   <div className="forecast-stats-card">
-      <p className='stats-name body-sm'> Stats Name</p>
-      <p className='stats-value body-lg'> <span>Value, Unit </span></p>
+      <p className='stats-name body-sm'> {{props.statsName}}</p>
+      <p className='stats-value body-lg'> <span>{{ Math.round(props.statsValue) }}{{props.unit}} </span></p>
     </div>
 </template>
 
