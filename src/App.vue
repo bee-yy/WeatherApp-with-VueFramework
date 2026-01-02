@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 
 
-import Header from './components/layout/header.vue'
+import Header from './components/layout/Header.vue'
 import SearchBar from './components/SearchBar.vue';
 import CurrentWeather from './components/weather/CurrentWeather.vue';
 import WeatherStatsCard from './components/weather/WeatherStatsCard.vue';

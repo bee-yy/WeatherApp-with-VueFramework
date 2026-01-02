@@ -1,38 +1,32 @@
 # WeatherApp-with-VueFramework
 
-This template should help get you started developing with Vue 3 in Vite.
+## Project Description
+A responsive weather web app that shows current weather and a 5-day forecast. Users can see their local weather via IP detection and override the city manually. Built with a focus on usability, clean design, and fast API-driven updates.
 
-## Recommended IDE Setup
+## Tech Stack
+* **Frontend:** React (Vite)
+* **Styling:** CSS (responsive, mobile-first)
+* **State Management:** React `useState` / `useEffect`
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Live Link and Code Link
+* **Live Demo:** [view](https://pm-accelerator-weather-app-tau.vercel.app)
+* **Source Code:** [Github](https://github.com/bee-yy/WeatherApp-with-VueFramework.git)
 
-## Recommended Browser Setup
+## How to Run Locally
+1. Clone the repository:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+   ```bash
+   git clone https://github.com/bee-yy/PM-Accelerator-Weather-App.git
+   ```
+2. Install dependencies:
 
-## Customize configuration
+   ```bash
+   npm install
+   ```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+4. Start the development server:
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:5173](http://localhost:5173) in your browser.
