@@ -9,14 +9,14 @@ A responsive weather web app that shows current weather and a 5-day forecast. Us
 * **State Management:** React `useState` / `useEffect`
 
 ## Live Link and Code Link
-* **Live Demo:** [view](https://pm-accelerator-weather-app-tau.vercel.app)
+* **Live Demo:** [view](https://weather-app-with-vue-framework.vercel.app)
 * **Source Code:** [Github](https://github.com/bee-yy/WeatherApp-with-VueFramework.git)
 
 ## How to Run Locally
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/bee-yy/PM-Accelerator-Weather-App.git
+   git clone https://github.com/bee-yy/WeatherApp-with-VueFramework.git
    ```
 2. Install dependencies:
 
